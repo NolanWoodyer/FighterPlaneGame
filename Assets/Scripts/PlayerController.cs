@@ -67,9 +67,13 @@ public class PlayerController : MonoBehaviour
             transform.position = new Vector3(transform.position.x * -1, transform.position.y, 0);
         }
 
-        if (transform.position.y <= -verticalScreenSize || transform.position.y > verticalScreenSize)
+        if (transform.position.y <= -verticalScreenSize + 3f)
         {
-            transform.position = new Vector3(transform.position.x, transform.position.y * -1, 0);
+            transform.position = new Vector3(transform.position.x, -verticalScreenSize + 3f, 0);
+        }
+        if (transform.position.y > verticalScreenSize - 6.5f)
+        {
+            transform.position = new Vector3(transform.position.x, verticalScreenSize - 6.5f, 0);
         }
 
     }
