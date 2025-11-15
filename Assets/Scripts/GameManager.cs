@@ -11,13 +11,26 @@ public class GameManager : MonoBehaviour
     public GameObject enemyOnePrefab;
     public GameObject enemyTwoPrefab;
     public GameObject cloudPrefab;
+    public GameObject powerupPrefab;
+    public GameObject gameOverText;
+    public GameObject restartText;
+    public GameObject audioPlayer; //1 audio source 2 an audio clip
+    public AudioClip powerUpSound;
+    public AudioClip powerDownSound;
 
     public TextMeshProUGUI livesText;
+    public TextMeshProUGUI scoreText;
+    public TextMeshProUGUI powerUpText;
+
+
+
 
     public float horizontalScreenSize;
     public float verticalScreenSize;
 
     public int score;
+    public int cloudMove;
+    private bool gameOver;
 
     // Start is called before the first frame update
     void Start()
@@ -25,12 +38,18 @@ public class GameManager : MonoBehaviour
         horizontalScreenSize = 10f;
         verticalScreenSize = 6.5f;
         score = 0;
+        cloudMove = 1;
+        gameOver = false;
         Instantiate(playerPrefab, transform.position, Quaternion.identity);
         CreateSky();
         InvokeRepeating("CreateEnemy", 1, 3);
         InvokeRepeating("CreateBird", 1, 7);
     }
-
+    public void AddScore(int earnedScore)
+    {
+        score += earnedScore;
+        scoreText.text = "Score: " + score;
+    }
     // Update is called once per frame
     void Update()
     {
@@ -55,12 +74,8 @@ public class GameManager : MonoBehaviour
         }
         
     }
-    public void AddScore(int earnedScore)
-    {
-        score = score + earnedScore;
-    }
 
-    public void ChangeLivesText (int currentLives)
+    public void ChangeLivesText(int currentLives)
     {
         livesText.text = "Lives: " + currentLives;
     }
