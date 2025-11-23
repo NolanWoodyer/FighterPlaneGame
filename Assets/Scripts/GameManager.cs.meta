@@ -8,7 +8,16 @@ MonoImporter:
   - enemyOnePrefab: {fileID: 8729755512266785908, guid: 57d7aa5182902e24cb707961f14f52d5, type: 3}
   - enemyTwoPrefab: {fileID: 8729755512266785908, guid: 06bdb0fb2f75d114eabec3c549c89714, type: 3}
   - cloudPrefab: {fileID: 8901978872678414076, guid: 14dd4fa52784c904e83c0650f3eea560, type: 3}
+  - coinPrefab: {fileID: 8729755512266785908, guid: c95604aa33fafea49959d028812593fd, type: 3}
+  - powerupPrefab: {fileID: 8729755512266785908, guid: d1c22622902b35e4489394a97d65b6b9, type: 3}
+  - gameOverText: {instanceID: 0}
+  - restartText: {instanceID: 0}
+  - audioPlayer: {instanceID: 0}
+  - powerUpSound: {instanceID: 0}
+  - powerDownSound: {instanceID: 0}
   - livesText: {instanceID: 0}
+  - scoreText: {instanceID: 0}
+  - powerUpText: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

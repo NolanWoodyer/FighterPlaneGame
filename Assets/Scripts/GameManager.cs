@@ -22,7 +22,7 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI livesText;
     public TextMeshProUGUI scoreText;
     public TextMeshProUGUI powerUpText;
-
+    public bool shield;
 
 
 
@@ -39,6 +39,7 @@ public class GameManager : MonoBehaviour
         horizontalScreenSize = 10f;
         verticalScreenSize = 6.5f;
         score = 0;
+        shield = false;
         cloudMove = 1;
         gameOver = false;
         Instantiate(playerPrefab, transform.position, Quaternion.identity);
@@ -46,12 +47,14 @@ public class GameManager : MonoBehaviour
         InvokeRepeating("CreateEnemy", 1, 3);
         InvokeRepeating("CreateBird", 1, 7);
         InvokeRepeating("CreateCoin", 1, 10);
+        InvokeRepeating("CreatePowerup", 1, 15);
     }
     public void AddScore(int earnedScore)
     {
         score += earnedScore;
         scoreText.text = "Score: " + score;
     }
+    
     // Update is called once per frame
     void Update()
     {
@@ -72,6 +75,10 @@ public class GameManager : MonoBehaviour
  {
      Instantiate(coinPrefab, new Vector3(Random.Range(-horizontalScreenSize, horizontalScreenSize) * 0.9f, verticalScreenSize + 1f, 0), Quaternion.Euler(180, 0, 0));
  }
+ void CreatePowerup()
+    {
+        Instantiate(powerupPrefab, new Vector3(Random.Range(-horizontalScreenSize, horizontalScreenSize) * 0.9f, verticalScreenSize + 1f, 0), Quaternion.Euler(180, 0, 0));
+    }
 
     void CreateSky()
     {
@@ -85,5 +92,9 @@ public class GameManager : MonoBehaviour
     public void ChangeLivesText(int currentLives)
     {
         livesText.text = "Lives: " + currentLives;
+    }
+    public void shielded()
+    {
+        shield = true;
     }
 }

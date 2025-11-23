@@ -6,13 +6,13 @@ public class PlayerController : MonoBehaviour
 {
 
     public int lives;
+    
     private float speed;
 
     private GameManager gameManager;
 
     private float horizontalInput;
     private float verticalInput;
-
     public GameObject bulletPrefab;
     public GameObject explosionPrefab;
 
@@ -36,13 +36,21 @@ public class PlayerController : MonoBehaviour
     {
         //lives = lives - 1;
         //lives -= 1;
-        lives--;
+        if (gameManager.shield == true)
+        {
+            gameManager.shield = false;
+        }
+        else
+        {
+            lives--;
         gameManager.ChangeLivesText(lives);
         if (lives == 0)
         {
             Instantiate(explosionPrefab, transform.position, Quaternion.identity);
             Destroy(this.gameObject);
         }
+        }
+        
     }
 
     void Shooting()
@@ -77,4 +85,5 @@ public class PlayerController : MonoBehaviour
         }
 
     }
+    
 }
