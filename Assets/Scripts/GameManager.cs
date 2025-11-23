@@ -96,5 +96,10 @@ public class GameManager : MonoBehaviour
     public void shielded()
     {
         shield = true;
+        audioPlayer.GetComponent<AudioSource>().PlayOneShot(powerUpSound);
+    }
+    public void audio()
+    {
+        audioPlayer.GetComponent<AudioSource>().PlayOneShot(powerDownSound);
     }
 }

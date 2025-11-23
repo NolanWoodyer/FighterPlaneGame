@@ -39,6 +39,7 @@ public class PlayerController : MonoBehaviour
         if (gameManager.shield == true)
         {
             gameManager.shield = false;
+            gameManager.audio();
         }
         else
         {
